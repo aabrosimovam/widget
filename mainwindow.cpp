@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent):QWidget(parent)
     vLayout1->addWidget(inputEdit);
     vLayout1->addWidget(outputLabel);
     vLayout1->addWidget(outputEdit);
-    vLayout1->addStretch();//пружина
+    vLayout1->addStretch();// "привязка" к растяжению окна
 
     QVBoxLayout *vLayout2 = new QVBoxLayout();
     vLayout2->addWidget(nextButton);
