@@ -5,11 +5,15 @@
 MainWindow::MainWindow()
 {
     codec = QTextCodec::codecForName("UTF-8");// смена кодировки для русского языка
+    // установка заголовка окна
     this->setWindowTitle(codec->toUnicode("Обработка событий"));
-    area = new Area(this);
-    btn = new QPushButton(codec->toUnicode("Завершить"),this );
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(area);
-    layout->addWidget(btn);
-    connect(btn, SIGNAL(clicked(bool)),this,SLOT(close()));
+
+    area = new Area(this); // создание виджета area на текущем виджете
+    btn = new QPushButton(codec->toUnicode("Завершить"),this ); // создание кнопки на текущем виджете
+
+    QVBoxLayout *layout = new QVBoxLayout(this); // создание вертикальной разметки на текущем виджете
+    layout->addWidget(area); // добавление виджета area с фигурами на нее
+    layout->addWidget(btn); // и кнопки
+
+    connect(btn, &QPushButton::clicked,this,&MainWindow::close); // подключение сигнала нажатия кнопки к слоту закрытия окна
 }
