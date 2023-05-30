@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent):QWidget(parent) // определени�
     layout4->addLayout(layout2); // добавление блока layout2 в блок layout4
     layout4->addLayout(layout3); // добавление блока layout3 в блок layout4
 
-    connect(calcbutton, SIGNAL(clicked(bool)), edit1, SLOT(add_one())); // связь нажатия кнопки calcbutton со слотом add_one объекта edit1
-    connect(edit1, SIGNAL(tick_signal()), edit2, SLOT(add_one())); // связь сигнала tick_signal объекта edit1 со слотом add_one объекта edit2
-    connect(exitbutton, SIGNAL(clicked(bool)), this, SLOT(close())); // связь нажатия кнопки exitbutton со слотом close() окна
+    connect(calcbutton, &QPushButton::clicked, edit1, &Counter::add_one); // связь нажатия кнопки calcbutton со слотом add_one объекта edit1
+    connect(edit1, &Counter::tick_signal, edit2, &Counter::add_one); // связь сигнала tick_signal объекта edit1 со слотом add_one объекта edit2
+    connect(exitbutton, &QPushButton::clicked, this, &Counter::close); // связь нажатия кнопки exitbutton со слотом close() окна
 }
